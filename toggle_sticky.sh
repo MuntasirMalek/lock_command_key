@@ -17,12 +17,14 @@ if [ "$CURRENT" = "1" ]; then
     echo "Toggling OFF..." >> "$LOGfile"
     /usr/bin/defaults write "$PLIST" stickyKey -bool false
     # Play 'Basso' for OFF
-    afplay /System/Library/Sounds/Basso.aiff
+    afplay /System/Library/Sounds/Basso.aiff &
+    osascript -e 'display notification "Sticky Keys is now OFF" with title "🔓 Unlocked"'
 else
     echo "Toggling ON..." >> "$LOGfile"
     /usr/bin/defaults write "$PLIST" stickyKey -bool true
     # Play 'Hero' for ON
-    afplay /System/Library/Sounds/Hero.aiff
+    afplay /System/Library/Sounds/Hero.aiff &
+    osascript -e 'display notification "Sticky Keys is now ON" with title "🔒 Locked"'
 fi
 
 # Reload the process
