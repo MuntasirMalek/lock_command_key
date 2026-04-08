@@ -1,33 +1,41 @@
-# Lock Command Key (Sticky Keys Toggle for macOS)
+# Lock Command Key
 
-A simple script to toggle macOS Sticky Keys on/off with a keyboard shortcut. Perfect for users who need quick access to Sticky Keys without navigating through System Settings.
+Toggle macOS Sticky Keys with a keyboard shortcut. No more digging through settings!
 
-## What it does
+## 🔊 Sounds
 
-- Toggles Sticky Keys ON/OFF
-- Plays audio feedback:
-  - 🔔 **Ping** - Script triggered
-  - 🎵 **Hero** - Sticky Keys ON
-  - 🔇 **Basso** - Sticky Keys OFF
+| Sound | Meaning |
+|-------|---------|
+| Ping | Shortcut pressed |
+| Hero | Sticky Keys ON |
+| Basso | Sticky Keys OFF |
 
-## Setup
+---
 
-### 1. Copy the script
+## 📦 Installation
 
-```bash
-cp toggle_sticky.sh ~/toggle_sticky.sh
-chmod +x ~/toggle_sticky.sh
-```
+### Step 1: Download the script
 
-### 2. Install Karabiner-Elements
+1. Download `toggle_sticky.sh` from this repo
+2. Move it to your home folder (`/Users/YOUR_USERNAME/`)
+3. Open **Terminal** and run:
+   ```
+   chmod +x ~/toggle_sticky.sh
+   ```
 
-```bash
-brew install --cask karabiner-elements
-```
+### Step 2: Install Karabiner-Elements
 
-### 3. Add Karabiner rule
+1. Download from [karabiner-elements.pqrs.org](https://karabiner-elements.pqrs.org/)
+2. Install and open it
+3. Follow the setup prompts
 
-Add this to your `~/.config/karabiner/karabiner.json` inside the `"rules": [...]` array:
+### Step 3: Add the keyboard shortcut
+
+1. Open Karabiner-Elements
+2. Go to **Complex Modifications** → **Add rule** → **Import more rules from the Internet**
+3. Or manually add this rule:
+   - Open `~/.config/karabiner/karabiner.json`
+   - Find `"rules": []` and add:
 
 ```json
 {
@@ -37,41 +45,35 @@ Add this to your `~/.config/karabiner/karabiner.json` inside the `"rules": [...]
       "type": "basic",
       "from": {
         "key_code": "s",
-        "modifiers": {
-          "mandatory": ["left_command"]
-        }
+        "modifiers": { "mandatory": ["left_command"] }
       },
-      "to": [
-        {
-          "shell_command": "~/toggle_sticky.sh"
-        }
-      ],
-      "conditions": [
-        {
-          "type": "frontmost_application_if",
-          "bundle_identifiers": ["^com\\.apple\\.finder$"]
-        }
-      ]
+      "to": [{ "shell_command": "~/toggle_sticky.sh" }],
+      "conditions": [{
+        "type": "frontmost_application_if",
+        "bundle_identifiers": ["^com\\.apple\\.finder$"]
+      }]
     }
   ]
 }
 ```
 
-### 4. Grant Permissions
+### Step 4: Give permissions
 
-In **System Settings → Privacy & Security**:
-- **Accessibility**: Add Karabiner-Elements
-- **Full Disk Access**: Add Karabiner-Elements
+1. Open **System Settings**
+2. Go to **Privacy & Security**
+3. Add Karabiner-Elements to:
+   - ✅ Accessibility
+   - ✅ Full Disk Access
 
-## Usage
+---
 
-Press `Cmd+S` in Finder to toggle Sticky Keys. Listen for the sound to confirm the state change.
+## 🎮 How to Use
 
-## Customization
+1. Open **Finder**
+2. Press **Cmd + S**
+3. Listen for the sound!
 
-- Edit the script to change the username path if needed
-- Modify the Karabiner rule to use a different shortcut or work in other apps
-- Change the sound files to your preference
+---
 
 ## License
 
