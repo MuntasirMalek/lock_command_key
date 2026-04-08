@@ -17,10 +17,10 @@ Toggle macOS Sticky Keys with a keyboard shortcut. No more digging through setti
 Open **Terminal** and paste:
 
 ```
-curl -sL https://raw.githubusercontent.com/MuntasirMalek/lock_command_key/main/toggle_sticky.sh -o ~/toggle_sticky.sh && chmod +x ~/toggle_sticky.sh
+curl -sL https://raw.githubusercontent.com/MuntasirMalek/lock_command_key/main/lock_command_key.sh -o ~/lock_command_key.sh && chmod +x ~/lock_command_key.sh
 ```
 
-Done! Script is ready at `~/toggle_sticky.sh`
+Done! Script is ready at `~/lock_command_key.sh`
 
 ### Step 2: Install Karabiner-Elements
 
@@ -46,7 +46,7 @@ Done! Script is ready at `~/toggle_sticky.sh`
         "key_code": "s",
         "modifiers": { "mandatory": ["left_command"] }
       },
-      "to": [{ "shell_command": "~/toggle_sticky.sh" }],
+      "to": [{ "shell_command": "~/lock_command_key.sh" }],
       "conditions": [{
         "type": "frontmost_application_if",
         "bundle_identifiers": ["^com\\.apple\\.finder$"]
