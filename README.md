@@ -12,16 +12,15 @@ Toggle macOS Sticky Keys with a keyboard shortcut. No more digging through setti
 
 ---
 
-## 📦 Installation
+## 📦 Quick Install
 
-### Step 1: Download the script
+Open **Terminal** and paste:
 
-1. Download `toggle_sticky.sh` from this repo
-2. Move it to your home folder (`/Users/YOUR_USERNAME/`)
-3. Open **Terminal** and run:
-   ```
-   chmod +x ~/toggle_sticky.sh
-   ```
+```
+curl -sL https://raw.githubusercontent.com/MuntasirMalek/lock_command_key/main/toggle_sticky.sh -o ~/toggle_sticky.sh && chmod +x ~/toggle_sticky.sh
+```
+
+Done! Script is ready at `~/toggle_sticky.sh`
 
 ### Step 2: Install Karabiner-Elements
 
